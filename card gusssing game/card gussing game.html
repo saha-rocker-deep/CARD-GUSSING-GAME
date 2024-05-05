@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="cards">
+        <div class="card" id="front1">
+            <div class="f1">
+                front1
+            </div>
+        </div>
+        <div class="card" id="front2">
+            <div class="f2">
+                front2
+            </div>
+
+        </div>
+
+        <div class="card" id="front3">
+            <div class="f3">
+                front11
+
+            </div>
+        </div>
+
+        <div class="card" id="front4">
+            <div class="f4">
+                front2
+            </div>
+        </div>
+
+        <div class="card" id="front5">
+            <div class="f5">
+                front1
+            </div>
+        </div>
+
+
+        <div class="card" id="front6">
+            <div class="f6">
+                front11
+            </div>
+        </div>
+
+
+
+
+        <div class="card" id="front7">
+            <div class="f7">
+                front4
+            </div>
+        </div>
+
+
+
+
+
+        <div class="card" id="front8">
+            <div class="f8">
+                front5
+            </div>
+        </div>
+
+
+
+
+
+        <div class="card" id="front9">
+            <div class="f9">
+                front4
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="card" id="front10">
+            <div class="f10">
+                front5
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="show">
+
+    </div>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .cards {
+            margin: 0px;
+            padding: 0px;
+            display: grid;
+            grid-template-columns: repeat(3, 300px);
+            gap: 60px;
+            justify-content: center;
+        }
+        
+        .card {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            border-radius: 2px;
+            padding: 2px 2px 2px 2px;
+            color: pink;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-weight: bold;
+   
+        }
+        
+        #front1 {
+            background-color: black;
+        }
+        
+        #front2 {
+            background: linear-gradient(hwb(304 24% 71% / 0), #2af598);
+        }
+        
+        .l {
+            opacity: 1;
+        }
+        
+        .f1 {
+            opacity: 0;
+        }
+        
+        .f2 {
+            opacity: 0;
+        }
+        
+        .f3 {
+            opacity: 0;
+        }
+        
+        .f4 {
+            opacity: 0;
+        }
+        
+        .f5 {
+            opacity: 0;
+        }
+        
+        .f6 {
+            opacity: 0;
+        }
+        
+        .f7 {
+            opacity: 0;
+        }
+        
+        .f8 {
+            opacity: 0;
+        }
+        
+        .f9 {
+            opacity: 0;
+        }
+        
+        .f10 {
+            opacity: 0;
+        }
+        
+        .comingtext {
+            opacity: 1;
+        }
+        
+        #front3 {
+            background: linear-gradient(#3b3a38, #f52a2a);
+        }
+        
+        #front4 {
+            background: linear-gradient(#3b3838, #2a37f5);
+        }
+        
+        #front5 {
+            background: linear-gradient(#2aaef5, rgb(255, 102, 102))
+        }
+        
+        #front6 {
+            background: linear-gradient(#a3a3a3, #2af598);
+        }
+        
+        #front7 {
+            background: linear-gradient(#a33, #2af598);
+        }
+        
+        #front8 {
+            background: linear-gradient(#a3a3a3, #2a5598);
+        }
+        
+        #front9 {
+            background: linear-gradient(#a3a3, #2af598);
+        }
+        
+        #front10 {
+            background: linear-gradient(rgb(199, 208, 219), #2af598);
+        }
+    </style>
+    <script>
+        const cards = document.querySelectorAll(".card");
+        let count = 0;
+        a = [];
+        cards.forEach((p1) => {
+            p1.children[0].addEventListener("click", () => {
+            
+                console.log(p1.children[0], count, "children");
+                p1.children[0].classList.add('comingtext');
+
+                if (count == 0) {
+                    first = p1.children[0];
+                    count++;
+                } else {
+                    second = p1.children[0];
+                    count = 0;
+                    if (first.innerHTML == second.innerHTML) {
+                        console.log("match");
+                        if (a.length != 0) {
+                            i = a.length;
+                            j = 0;
+                            while (j != i) {
+                                if (a[j] != first.innerHTML) {
+                                    k = "true"
+                                } else {
+                                    k = "false"
+                                }
+
+                                j++;
+                            }
+                            if (k == "true") {
+                                a.push(first.innerHTML);
+
+                            } else {
+                                console.log("it have already exists");
+                            }
+                        } else {
+                            a.push(first.innerHTML);
+                        }
+                        console.log(a.length);
+                        console.log(first.className, "firstclassname");
+
+
+
+
+                    } else {
+                        console.log("not match");
+                        if (a.length != 0) {
+                            i = a.length;
+                            j = 0;
+                            while (j != i) {
+                                if (a[j] != first.innerHTML) {
+                                    k = "true"
+                                } else {
+                                    k = "false"
+                                }
+
+                                j++;
+                            }
+                            if (k == "true") {
+                                first.classList.remove("comingtext");
+                                second.classList.remove("comingtext");
+
+                            } else {
+                                console.log("it is not possible");
+                            }
+                        } else {
+                            first.classList.remove("comingtext");
+                            second.classList.remove("comingtext");
+                        }
+                        /*first.classList.remove("comingtext");
+                        second.classList.remove("comingtext");*/
+                    }
+                    if (a.length == 5) {
+                        document.querySelector(".show").innerHTML = "gameover";
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
